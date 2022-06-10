@@ -17,7 +17,7 @@ class ChangingColorspacesUI(QMainWindow):
         super(ChangingColorspacesUI, self).__init__()
         
         # Load the ui file
-        uic.loadUi('../ui/changing_colorspace.ui', self)
+        uic.loadUi('./ui/changing_colorspace.ui', self)
         
         # Define widgets
         self.horizontalSliderHL = self.findChild(QSlider, 'horizontalSliderHL')
