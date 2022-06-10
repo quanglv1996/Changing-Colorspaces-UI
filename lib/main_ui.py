@@ -1,6 +1,8 @@
-from fileinput import filename
 import sys
 sys.path.append('../.')
+
+import os
+from pathlib import Path
 
 from PyQt5.QtWidgets import QMainWindow, QApplication,QInputDialog, QFileDialog, QPushButton, QTextBrowser, QLabel, QRadioButton
 from PyQt5 import uic
@@ -72,12 +74,15 @@ class MainUI(QMainWindow):
             self.id_mode = 2
             
     def openFileNameDialog(self):
+        current_path = Path(os.path.abspath(os.getcwd()))
+        parrent_path = current_path.parent.absolute()
+        print(parrent_path)
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
         if self.radioButtonVideo.isChecked():
-            fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "C:/Users/Administrator/Videos","MP4 Files (*.mp4)", options=options)
+            fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", os.path.join(parrent_path, 'media'),"MP4 Files (*.mp4)", options=options)
         elif self.radioButtonImage.isChecked():
-            fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "C:/Users/Administrator/Pictures","Images Files (*.png *.jpeg *.jpg)", options=options)
+            fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", os.path.join(parrent_path, 'media'),"Images Files (*.png *.jpeg *.jpg)", options=options)
         else:
             fileName = ''
         if fileName:

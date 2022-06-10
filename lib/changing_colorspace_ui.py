@@ -3,7 +3,7 @@ sys.path.append('../.')
 
 import cv2
 
-from PyQt5.QtWidgets import QMainWindow, QApplication, QLabel, QPushButton, QComboBox, QSlider
+from PyQt5.QtWidgets import QMainWindow, QApplication, QLabel, QPushButton, QComboBox, QSlider, QRadioButton
 from PyQt5 import uic
 from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.QtCore import Qt
@@ -35,6 +35,9 @@ class ChangingColorspacesUI(QMainWindow):
         self.labelHU = self.findChild(QLabel, 'labelHU')
         self.labelSU = self.findChild(QLabel, 'labelSU')
         self.labelVU = self.findChild(QLabel, 'labelVU')
+        
+        self.radioButtonOriginal = self.findChild(QRadioButton, 'radioButtonOriginal')
+        self.radioButtonMask = self.findChild(QRadioButton, 'radioButtonMask')
         
         self.labelShow = self.findChild(QLabel, 'labelShow')
         self.labelShow.setStyleSheet("border: 2px solid gray;")
@@ -174,13 +177,17 @@ class ChangingColorspacesUI(QMainWindow):
         
     def update_image(self, cv_img):
         """Updates the image_label with a new opencv image"""
-        cv_img = self.changing_colorspace_lib.run(cv_img)
+        if not self.radioButtonOriginal.isChecked():
+            cv_img = self.changing_colorspace_lib.run(cv_img)
         qt_img = self.convert_cv_qt(cv_img)
         self.labelShow.setPixmap(qt_img)
     
     def convert_cv_qt(self, cv_img):
         """Convert from an opencv image to QPixmap"""
-        rgb_image = cv2.cvtColor(cv_img, cv2.COLOR_GRAY2RGB)
+        if not self.radioButtonOriginal.isChecked():
+            rgb_image = cv2.cvtColor(cv_img, cv2.COLOR_GRAY2RGB)
+        else:
+            rgb_image =  cv2.cvtColor(cv_img, cv2.COLOR_BGR2RGB)
         h, w, ch = rgb_image.shape
         bytes_per_line = ch * w
         convert_to_Qt_format = QImage(rgb_image.data, w, h, bytes_per_line, QImage.Format_RGB888)
