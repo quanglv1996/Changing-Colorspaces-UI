@@ -7,7 +7,7 @@ The program provides a UI that makes it easy for users to use [OpenCV2's Changin
 On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
 
 ## Visuals
-![UI](/changing-colorspaces-ui/-/blob/main/media/lenna.png)
+![UI]([/changing-colorspaces-ui/-/blob/main/media/lenna.png](https://www.istockphoto.com/vi/anh/s%E1%BB%ADa-ch%E1%BB%AFa-t%C3%A0u-container-tr%C3%AAn-kh%C3%B4ng-trong-x%C6%B0%E1%BB%9Fng-%C4%91%C3%B3ng-t%C3%A0u-l%C3%BAc-ch%E1%BA%A1ng-v%E1%BA%A1ng-tr%C3%AAn-%C3%A1nh-s%C3%A1ng-c%C3%B3-gm1335890759-417368956?utm_source=pixabay&utm_medium=affiliate&utm_campaign=SRP_image_sponsored&utm_content=http%3A%2F%2Fpixabay.com%2Fimages%2Fsearch%2Fsea%2F&utm_term=sea))
 
 Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
 
