@@ -17,8 +17,8 @@ The program provides a UI that makes it easy for users to use [OpenCV2's Changin
 ## Installation
 Clone repository
 ```bash
-git clone https://gitlab.com/quanglvhust/changing-colorspaces-ui
-cd changing-colorspaces-ui
+git clone https://github.com/quanglv1996/Changing-Colorspaces-UI.git
+cd Changing-Colorspaces-UI
 ```
 
 Install environment
